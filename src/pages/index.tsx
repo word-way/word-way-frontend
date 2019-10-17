@@ -1,3 +1,3 @@
-export { default as HomePage } from './Home/HomePage';
-export { default as WordDetailPage } from './WordDetail/WordDetailPage';
-export { default as WordListPage } from './WordList/WordListPage';
+export { default as HomePage } from './HomePage';
+export { default as WordDetailPage } from './WordDetailPage';
+export { default as WordListPage } from './WordListPage';
