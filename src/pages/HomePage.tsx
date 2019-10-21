@@ -7,13 +7,13 @@ const HomePage: React.FC<RouteComponentProps> = (props) => {
     props.history.push(url);
   }
   return (
-    <div>
+    <>
       <form>
-        <input></input>
+        <input />
         <button onClick={searchWord}>검색</button>
       </form>
-    </div>
+    </>
   );
-}
+};
 
 export default HomePage;
