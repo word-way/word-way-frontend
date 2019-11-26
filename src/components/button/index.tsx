@@ -50,13 +50,13 @@ const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
     min-width: 90px;
     `}
 
-    ${variant == 'contained' && color === 'default' && css`
+    ${variant === 'contained' && color === 'default' && css`
       color: ${TextColor.darkgray1};
       background: ${themeColor};
       border: 1px solid ${themeColor};
     `}
 
-    ${size == 'small' && css`
+    ${size === 'small' && css`
     font-size: 0.85rem;
     `}
   `
