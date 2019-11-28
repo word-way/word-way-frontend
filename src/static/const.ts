@@ -5,5 +5,5 @@ export enum ColorList {
 }
 export enum TextColor {
     gray1 = '#f0f2f4',
-    darkgray1 = '#5c5c5c'
+    darkgray1 = '#5c5c5c',
 }
