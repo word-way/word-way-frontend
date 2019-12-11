@@ -16,12 +16,12 @@ const Icon = (props: ButtonProps): React.ReactElement<ButtonProps> => {
             mask-position: 50% 50%;
             mask-repeat: no-repeat; 
 
-            ${size == 'small' && css`
+            ${size === 'small' && css`
                 width: 12px;
                 height: 12px;
             `}
 
-            ${size == 'large' && css`
+            ${size === 'large' && css`
                 width: 28px;
                 height: 28px;
             `}
