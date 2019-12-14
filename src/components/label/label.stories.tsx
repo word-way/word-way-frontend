@@ -14,7 +14,7 @@ storiesOf('Label', module)
         () => <Label size="medium">결과 내 재검색</Label>
     )
     .add('custom label',
-        () => <Label color={select('color', { greyishBrown: 'greyish-brown', lightGray: 'light-gray' }, 'greyishBrown')}
+        () => <Label color={select('color', { grayishBrown: 'grayish-brown', lightGray: 'light-gray' }, 'grayishBrown')}
             weight={select('weight', { light: 'light', normal: 'normal', semi: 'semi', bold: 'bold' }, 'light')}
             size={text('size', '13px')}>[동사] 어떤 목표로 뜻이 쏠리어 향하다.</Label>
     )
