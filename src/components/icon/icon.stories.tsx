@@ -14,10 +14,10 @@ storiesOf('Icon', module)
         </Icon>
     )
     .add('icon with button',
-        () => <Button theme="rounded" variant="contained" color="primary">
+        () => <Button theme='rounded' variant='contained' color='primary'>
             <span>향하다</span>
-            <Icon size="small">
+            <Icon size='small'>
                 <DelIc></DelIc>
             </Icon>
         </Button>
-    )
+    );

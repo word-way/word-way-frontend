@@ -2,10 +2,10 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 export interface LabelProps {
-    children: React.ReactNode,
-    color: string,
-    size: 'medium' | 'large' | string,
-    weight: 'light' | 'normal' | 'semi' | 'bold'
+    children: React.ReactNode;
+    color: string;
+    size: 'medium' | 'large' | string;
+    weight: 'light' | 'normal' | 'semi' | 'bold';
 }
 
 const Label = (props: LabelProps): React.ReactElement<LabelProps> => {
@@ -34,17 +34,17 @@ const Label = (props: LabelProps): React.ReactElement<LabelProps> => {
         ${weight === 'bold' && css`
             font-weight: bold;
         `}
-    `
+    `;
 
     return (
         <StyleDiv>{children}</StyleDiv>
-    )
-}
+    );
+};
 
 Label.defaultProps = {
     size: 'medium',
     color: 'black',
-    weight: 'normal'
-}
+    weight: 'normal',
+};
 
-export default Label
+export default Label;

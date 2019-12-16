@@ -2,19 +2,19 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 export interface ButtonProps {
-    children: React.ReactNode,
-    size: 'small' | 'medium' | 'large',
+    children: React.ReactNode;
+    size: 'small' | 'medium' | 'large';
 }
 
 const Icon = (props: ButtonProps): React.ReactElement<ButtonProps> => {
-    const { children, size } = props
+    const { children, size } = props;
     const StyleSpan = styled.span`
         svg {
             width: 20px;
             height: 20px;
             mask-size: contain;
             mask-position: 50% 50%;
-            mask-repeat: no-repeat; 
+            mask-repeat: no-repeat;
 
             ${size === 'small' && css`
                 width: 12px;
@@ -26,15 +26,15 @@ const Icon = (props: ButtonProps): React.ReactElement<ButtonProps> => {
                 height: 28px;
             `}
         }
-    `
+    `;
 
     return (
         <StyleSpan>{children}</StyleSpan>
-    )
-}
+    );
+};
 
 Icon.defaultProps = {
-    size: 'medium'
-}
+    size: 'medium',
+};
 
-export default Icon
+export default Icon;

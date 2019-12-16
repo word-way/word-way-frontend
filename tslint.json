@@ -29,7 +29,12 @@
             true,
             "always",
             "ignore-bound-class-methods"
-        ]
+        ],
+        "ordered-imports": [
+            false
+        ],
+        "object-literal-sort-keys": false,
+        "no-empty": false
     },
     "rulesDirectory": []
 }
