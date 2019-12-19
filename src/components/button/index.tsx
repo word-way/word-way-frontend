@@ -5,15 +5,15 @@ import styled, { css } from 'styled-components';
 import { ColorList, TextColor } from '../../static/const';
 
 export interface ButtonProps {
-  type: 'button' | 'reset' | 'submit',
-  theme: 'default' | 'rounded',
-  size: 'small' | 'medium' | 'large',
-  variant: 'text' | 'outlined' | 'contained',
-  onClick: () => void,
-  children: React.ReactNode,
-  className: string,
-  disabled: boolean,
-  color: string
+  type: 'button' | 'reset' | 'submit';
+  theme: 'default' | 'rounded';
+  size: 'small' | 'medium' | 'large';
+  variant: 'text' | 'outlined' | 'contained';
+  onClick: () => void;
+  children: React.ReactNode;
+  className: string;
+  disabled: boolean;
+  color: string;
 }
 
 const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
@@ -59,30 +59,30 @@ const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
     ${size === 'small' && css`
     font-size: 0.85rem;
     `}
-  `
+  `;
   const classProps: string = classnames(
     {
       [styles.disabled]: disabled,
     },
     className
-  )
+  );
 
   return (
     <StyleButton type={type} onClick={onClick} disabled={disabled} className={classProps}>
       {children}
     </StyleButton>
-  )
-}
+  );
+};
 
 Button.defaultProps = {
   type: 'button',
   theme: 'default',
   size: 'medium',
-  onClick: () => { },
+  onClick: () => {},
   className: null,
   disabled: false,
   variant: 'contain',
-  color: 'primary'
-}
+  color: 'primary',
+};
 
-export default Button
+export default Button;

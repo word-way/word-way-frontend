@@ -1,6 +1,6 @@
 export enum ColorList {
     default = '#edf0f5',
-    primary = "#2e78f7",
+    primary = '#2e78f7',
     secondary = '#5c5c5c',
 }
 export enum TextColor {
