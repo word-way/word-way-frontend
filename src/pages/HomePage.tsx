@@ -4,17 +4,14 @@ import { RouteComponentProps } from 'react-router';
 import Button from '../components/button';
 
 const HomePage: React.FC<RouteComponentProps> = (props) => {
-  function searchWord() {
-    const url = 'search';
-    props.history.push(url);
+  const handleChangePage = () => {
+    props.history.push('search');
   }
   return (
-    <>
-      <form>
-        <input />
-        <Button onClick={searchWord}>검색</Button>
-      </form>
-    </>
+    <form>
+      <input onClick={handleChangePage}/>
+      <Button onClick={handleChangePage}>검색</Button>
+    </form>
   );
 };
 
