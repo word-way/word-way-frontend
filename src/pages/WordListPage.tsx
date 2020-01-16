@@ -1,18 +1,25 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 
+import Search from '../molecules/search';
+
 interface WordListProps {
   searchWord: string;
 }
 
 const WordListPage: React.FC<RouteComponentProps<WordListProps>> = (props) => {
-  function gotoDetail() {
-    const url = '/detail';
-    props.history.push(url);
+
+  const gotoDetail = () => {
+    props.history.push('/detail');
   }
+
   const { searchWord } = props.match.params;
   return (
     <div>
+      <Search
+        onInputClick={() => props.history.push('/search')}
+        onSearch={() => props.history.push('/search')}
+      />
       WordList Page
       <div>
         <h2>단어 -> {searchWord}</h2>

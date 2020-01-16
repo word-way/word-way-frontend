@@ -1,0 +1,20 @@
+@import '../../static/variables.scss';
+
+.disabled {
+  color: var(--grey-2);
+  background: color(var(--grey-4) tint(40%));
+  border-color: var(--grey-4);
+  cursor: default;
+}
+
+.input {
+  background: transparent;
+  border-radius: 4px;
+  color: var(--grayish-brown);
+  padding: 6px 16px;
+  min-width: 64px;
+  letter-spacing: -0.9px;
+  font-weight: 500;
+  font-size: 1.1em;
+  border: 1px solid var(--deep-sky-blue);
+}

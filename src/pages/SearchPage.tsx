@@ -4,14 +4,15 @@ import { RouteComponentProps } from 'react-router';
 import Search from '../molecules/search';
 
 const HomePage: React.FC<RouteComponentProps> = (props) => {
-  const handleChangePage = () => {
-    props.history.push('search');
+
+  const handleSearch = (word: string) => {
+    props.history.push(`/search/${word}`);
   }
+
   return (
-    <Search
-      onInputClick={handleChangePage}
-      onSearch={handleChangePage} 
-    />
+    <>
+      <Search key="search_component" onSearch={handleSearch} />
+    </>
   );
 };
 

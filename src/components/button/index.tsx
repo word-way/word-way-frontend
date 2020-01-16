@@ -4,12 +4,12 @@ import styles from './button.module.scss';
 import styled, { css } from 'styled-components';
 import { ColorList, TextColor } from '../../static/const';
 
-export interface ButtonProps {
+interface ButtonProps {
   type: 'button' | 'reset' | 'submit';
   theme: 'default' | 'rounded';
   size: 'small' | 'medium' | 'large';
   variant: 'text' | 'outlined' | 'contained';
-  onClick: () => void;
+  onClick: (e: any) => void;
   children: React.ReactNode;
   className: string;
   disabled: boolean;
@@ -78,7 +78,7 @@ Button.defaultProps = {
   type: 'button',
   theme: 'default',
   size: 'medium',
-  onClick: () => {},
+  onClick: (e: any) => {},
   className: null,
   disabled: false,
   variant: 'contain',
