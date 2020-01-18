@@ -1,0 +1,8 @@
+@import '../../static/variables.scss';
+
+.disabled {
+  color: var(--light-gray);
+  background: color(var(--black) tint(40%));
+  border-color: var(--black);
+  cursor: default;
+}
