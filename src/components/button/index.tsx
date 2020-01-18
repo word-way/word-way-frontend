@@ -4,12 +4,12 @@ import styles from './button.module.scss';
 import { css } from 'styled-components';
 import styled from '../../static/styled-components';
 
-export interface ButtonProps {
+interface ButtonProps {
   type: 'button' | 'reset' | 'submit';
   corner: 'default' | 'rounded';
   size: 'small' | 'medium' | 'large';
   variant: 'text' | 'outlined' | 'contained';
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLElement>) => void;
   children: React.ReactNode;
   className: string;
   disabled: boolean;
