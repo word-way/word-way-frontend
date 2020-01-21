@@ -10,10 +10,9 @@ export interface LabelProps {
 
 const Label = (props: LabelProps): React.ReactElement<LabelProps> => {
     const { children, size, color, weight } = props;
-    const colorVar = '--' + color;
     const StyleDiv = styled.div`
         font-weight: normal;
-        color: var(${colorVar});
+        color: ${color};
         ${size === 'medium' && css`
             font-size: 15px;
             font-weight: 500;
