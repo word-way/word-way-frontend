@@ -1,6 +1,8 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../static/theme';
 import Button from '../components/button';
 
 const HomePage: React.FC<RouteComponentProps> = (props) => {
@@ -9,12 +11,12 @@ const HomePage: React.FC<RouteComponentProps> = (props) => {
     props.history.push(url);
   }
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <form>
         <input />
         <Button onClick={searchWord}>검색</Button>
       </form>
-    </>
+    </ThemeProvider>
   );
 };
 

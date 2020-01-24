@@ -1,12 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
 import styles from './button.module.scss';
-import styled, { css } from 'styled-components';
-import { ColorList, TextColor } from '../../static/const';
+import { css } from 'styled-components';
+import styled from '../../static/styled-components';
 
 export interface ButtonProps {
   type: 'button' | 'reset' | 'submit';
-  theme: 'default' | 'rounded';
+  corner: 'default' | 'rounded';
   size: 'small' | 'medium' | 'large';
   variant: 'text' | 'outlined' | 'contained';
   onClick: () => void;
@@ -16,14 +16,28 @@ export interface ButtonProps {
   color: string;
 }
 
-const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
-  const { type, onClick, children, theme, size, className, disabled, variant, color } = props;
+const BaseButton = (props: ButtonProps): React.ReactElement<ButtonProps> => {
+  const { type, onClick, children, className, disabled } = props;
+  const classProps: string = classnames(
+    {
+      [styles.disabled]: disabled,
+    },
+    className
+  );
 
-  const themeColor = color ? Object(ColorList)[color] : ColorList.default;
-  const StyleButton = styled.button`
+  return (
+    <button type={type} onClick={onClick} disabled={disabled} className={classProps}>
+      {children}
+    </button>
+  );
+};
+
+const Button = styled(BaseButton)((themeProps) => {
+  const { theme, size, variant, color, corner } = themeProps;
+  const StyleButton = css`
     background: transparent;
     border-radius: 4px;
-    color: ${TextColor.darkgray1};
+    color: ${theme.colors.g500};
     padding: 6px 16px;
     min-width: 64px;
     letter-spacing: -0.9px;
@@ -35,54 +49,43 @@ const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
     `}
 
     ${variant === 'contained' && css`
-      color: ${TextColor.gray1};
-      background: ${themeColor};
-      border: 1px solid ${themeColor};
+      color: ${theme.colors.g100};
+      background: ${color};
+      border: 1px solid ${color};
     `}
 
     ${variant === 'outlined' && css`
-    color: ${themeColor};
-    border: 1px solid ${themeColor};
+    color: ${color};
+    border: 1px solid ${color};
     `}
 
-    ${theme === 'rounded' && css`
+    ${corner === 'rounded' && css`
     border-radius: 20px;
     min-width: 90px;
     `}
 
     ${variant === 'contained' && color === 'default' && css`
-      color: ${TextColor.darkgray1};
-      background: ${themeColor};
-      border: 1px solid ${themeColor};
+      color: ${theme.colors.g500};
+      background: ${color};
+      border: 1px solid ${color};
     `}
 
     ${size === 'small' && css`
     font-size: 0.85rem;
     `}
   `;
-  const classProps: string = classnames(
-    {
-      [styles.disabled]: disabled,
-    },
-    className
-  );
+  return StyleButton;
+});
 
-  return (
-    <StyleButton type={type} onClick={onClick} disabled={disabled} className={classProps}>
-      {children}
-    </StyleButton>
-  );
-};
-
-Button.defaultProps = {
+BaseButton.defaultProps = {
   type: 'button',
-  theme: 'default',
+  corner: 'default',
   size: 'medium',
   onClick: () => {},
   className: null,
   disabled: false,
   variant: 'contain',
-  color: 'primary',
+  color: 'black',
 };
 
 export default Button;
