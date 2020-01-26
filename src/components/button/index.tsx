@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import styles from './button.module.scss';
 import { css } from 'styled-components';
 import styled from '../../static/styled-components';
+import { theme } from '../../static/theme';
 
 interface ButtonProps {
   type: 'button' | 'reset' | 'submit';
@@ -33,7 +34,7 @@ const BaseButton = (props: ButtonProps): React.ReactElement<ButtonProps> => {
 };
 
 const Button = styled(BaseButton)((themeProps) => {
-  const { theme, size, variant, color, corner } = themeProps;
+  const { size, variant, color, corner } = themeProps;
   const StyleButton = css`
     background: transparent;
     border-radius: 4px;
