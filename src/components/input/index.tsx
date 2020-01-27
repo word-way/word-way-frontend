@@ -1,7 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
 import styled from 'styled-components';
-import styles from './input.module.scss';
 import { css } from 'styled-components';
 
 export interface InputProps {
@@ -25,15 +23,8 @@ const BaseInput = (props: InputProps): React.ReactElement<InputProps> => {
     ...inputProps
   } = props;
 
-  const classProps: string = classnames(
-    {
-      [styles.disabled]: disabled,
-    },
-    className,
-  );
   return (
     <input
-      className={classProps} 
       {...inputProps}
     />
   );
@@ -49,6 +40,11 @@ const Input = styled(BaseInput)(() => {
     font-weight: 500;
     font-size: 1.1em;
     border: 1px solid black;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
   `;
 });
 
