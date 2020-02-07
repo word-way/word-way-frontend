@@ -55,7 +55,7 @@ const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
 
     ${variant === 'outlined' && css`
       color: ${color};
-      border: 1px solid ${color};
+      border: 1px solid ${color === theme.colors.g500 ? theme.colors.g200 : color};
     `}
 
     ${corner === 'rounded' && css`

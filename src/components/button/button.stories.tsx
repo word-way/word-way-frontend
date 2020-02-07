@@ -41,7 +41,7 @@ export const mix = () => {
     const color = select('color', {
         paleGray: theme.colors.g100,
         blue: theme.colors.blue,
-        grayishBrown: theme.colors.g300,
+        grayishBrown: theme.colors.g500,
     }, theme.colors.blue);
     const corner = select('corner', {
         default: 'default',
