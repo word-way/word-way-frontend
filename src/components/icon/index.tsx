@@ -5,6 +5,7 @@ export interface IconProps {
     children: React.ReactNode;
     size: 'small' | 'medium' | 'large';
     className: string;
+    color: string;
 }
 
 const Icon = (props: IconProps): React.ReactElement<IconProps> => {
@@ -12,25 +13,18 @@ const Icon = (props: IconProps): React.ReactElement<IconProps> => {
         children,
         size,
         className,
+        color,
     } = props;
-
+    const fontSize = (!size || size === 'medium') ? 1.1 : (size === 'small' ? 0.8 : 1.8);
     const StyleSpan = styled.span`
+        width: 1em;
+        height: 100%;
+        font-size: ${fontSize + 'em'};
+        display: flex;
         svg {
-            width: 20px;
-            height: 20px;
-            mask-size: contain;
-            mask-position: 50% 50%;
-            mask-repeat: no-repeat;
-
-            ${size === 'small' && css`
-                width: 12px;
-                height: 12px;
-            `}
-
-            ${size === 'large' && css`
-                width: 28px;
-                height: 28px;
-            `}
+            width: 100%;
+            height: 100%;
+            fill: ${color};
         }
     `;
 
