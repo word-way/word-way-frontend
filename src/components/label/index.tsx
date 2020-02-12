@@ -6,10 +6,18 @@ export interface LabelProps {
     color: string;
     size: 'medium' | 'large' | string;
     weight: 'light' | 'normal' | 'semi' | 'bold';
+    className: string;
 }
 
 const Label = (props: LabelProps): React.ReactElement<LabelProps> => {
-    const { children, size, color, weight } = props;
+    const {
+        children,
+        size,
+        color,
+        weight,
+        className,
+    } = props;
+
     const StyleDiv = styled.div`
         font-weight: normal;
         color: ${color};
@@ -36,7 +44,7 @@ const Label = (props: LabelProps): React.ReactElement<LabelProps> => {
     `;
 
     return (
-        <StyleDiv>{children}</StyleDiv>
+        <StyleDiv className={className}>{children}</StyleDiv>
     );
 };
 
@@ -44,6 +52,7 @@ Label.defaultProps = {
     size: 'medium',
     color: 'black',
     weight: 'normal',
+    className: '',
 };
 
 export default Label;

@@ -1,8 +1,8 @@
 import React from 'react';
-import classnames from 'classnames';
-import styles from './button.module.scss';
 import { css } from 'styled-components';
 import styled from '../../static/styled-components';
+import { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 
 export interface ButtonProps {
   type: 'button' | 'reset' | 'submit';
@@ -16,25 +16,22 @@ export interface ButtonProps {
   color: string;
 }
 
-const BaseButton = (props: ButtonProps): React.ReactElement<ButtonProps> => {
-  const { type, onClick, children, className, disabled } = props;
-  const classProps: string = classnames(
-    {
-      [styles.disabled]: disabled,
-    },
-    className
-  );
+const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
+  const {
+    type,
+    corner,
+    size,
+    variant,
+    onClick,
+    children,
+    className,
+    disabled,
+    color,
+  } = props;
+  const themeContext = useContext(ThemeContext);
+  const theme = themeContext;
 
-  return (
-    <button type={type} onClick={onClick} disabled={disabled} className={classProps}>
-      {children}
-    </button>
-  );
-};
-
-const Button = styled(BaseButton)((themeProps) => {
-  const { theme, size, variant, color, corner } = themeProps;
-  const StyleButton = css`
+  const StyleButton = styled.button`
     background: transparent;
     border-radius: 4px;
     color: ${theme.colors.g500};
@@ -64,7 +61,7 @@ const Button = styled(BaseButton)((themeProps) => {
     min-width: 90px;
     `}
 
-    ${variant === 'contained' && color === 'default' && css`
+    ${variant === 'contained' && color === theme.colors.g100 && css`
       color: ${theme.colors.g500};
       background: ${color};
       border: 1px solid ${color};
@@ -74,15 +71,19 @@ const Button = styled(BaseButton)((themeProps) => {
     font-size: 0.85rem;
     `}
   `;
-  return StyleButton;
-});
+  return (
+    <StyleButton type={type} onClick={onClick} disabled={disabled} className={className}>
+      {children}
+    </StyleButton>
+  );
+};
 
-BaseButton.defaultProps = {
+Button.defaultProps = {
   type: 'button',
   corner: 'default',
   size: 'medium',
   onClick: () => {},
-  className: null,
+  className: '',
   disabled: false,
   variant: 'contain',
   color: 'black',
