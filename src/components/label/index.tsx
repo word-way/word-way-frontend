@@ -6,7 +6,7 @@ export interface LabelProps {
     color: string;
     size: 'medium' | 'large' | string;
     weight: 'light' | 'normal' | 'semi' | 'bold';
-    className: string;
+    className?: string;
 }
 
 const Label = (props: LabelProps): React.ReactElement<LabelProps> => {
@@ -52,7 +52,6 @@ Label.defaultProps = {
     size: 'medium',
     color: 'black',
     weight: 'normal',
-    className: '',
 };
 
 export default Label;

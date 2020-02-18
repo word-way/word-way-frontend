@@ -10,8 +10,8 @@ export interface ButtonProps {
   size: 'small' | 'medium' | 'large';
   variant: 'text' | 'outlined' | 'contained';
   onClick: () => void;
-  children: React.ReactNode;
-  className: string;
+  children?: React.ReactNode;
+  className?: string;
   disabled: boolean;
   color: string;
 }
@@ -30,17 +30,19 @@ const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
   } = props;
   const themeContext = useContext(ThemeContext);
   const theme = themeContext;
-
+  const fontSize = (!size || size === 'medium') ? 1.1 : (size === 'small' ? 0.8 : 1.8);
   const StyleButton = styled.button`
     background: transparent;
     border-radius: 4px;
     color: ${theme.colors.g500};
-    padding: 6px 16px;
-    min-width: 64px;
+    padding: 6px 14px;
+    min-width: 70px;
     letter-spacing: -0.9px;
     font-weight: 500;
-    font-size: 1.1em;
-
+    font-size: ${fontSize + 'em'};
+    pointer-events: ${disabled ? 'none' : 'auto'};
+    cursor: pointer;
+    outline: 0;
     ${variant === 'text' && css`
     border: 0;
     `}
@@ -52,13 +54,12 @@ const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
     `}
 
     ${variant === 'outlined' && css`
-    color: ${color};
-    border: 1px solid ${color};
+      color: ${color};
+      border: 1px solid ${color === theme.colors.g500 ? theme.colors.g200 : color};
     `}
 
     ${corner === 'rounded' && css`
-    border-radius: 20px;
-    min-width: 90px;
+      border-radius: ${fontSize * 1.25 + 'rem'};
     `}
 
     ${variant === 'contained' && color === theme.colors.g100 && css`
@@ -68,7 +69,7 @@ const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
     `}
 
     ${size === 'small' && css`
-    font-size: 0.85rem;
+      min-width: 90px;
     `}
   `;
   return (
@@ -83,7 +84,6 @@ Button.defaultProps = {
   corner: 'default',
   size: 'medium',
   onClick: () => {},
-  className: '',
   disabled: false,
   variant: 'contain',
   color: 'black',
