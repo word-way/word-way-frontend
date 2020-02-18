@@ -84,7 +84,6 @@ IconButton.defaultProps = {
     corner: 'default',
     size: 'medium',
     onClick: () => {},
-    className: null,
     disabled: false,
     variant: 'contain',
     color: 'black',

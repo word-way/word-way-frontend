@@ -11,7 +11,7 @@ export interface ButtonProps {
   variant: 'text' | 'outlined' | 'contained';
   onClick: () => void;
   children?: React.ReactNode;
-  className: string;
+  className?: string;
   disabled: boolean;
   color: string;
 }
@@ -84,7 +84,6 @@ Button.defaultProps = {
   corner: 'default',
   size: 'medium',
   onClick: () => {},
-  className: '',
   disabled: false,
   variant: 'contain',
   color: 'black',

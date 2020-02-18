@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 export interface IconProps {
     children: React.ReactNode;
     size: 'small' | 'medium' | 'large';
-    className: string;
+    className?: string;
     color: string;
 }
 
@@ -35,7 +35,6 @@ const Icon = (props: IconProps): React.ReactElement<IconProps> => {
 
 Icon.defaultProps = {
     size: 'medium',
-    className: '',
 };
 
 export default Icon;
