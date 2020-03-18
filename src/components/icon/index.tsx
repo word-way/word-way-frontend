@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export interface IconProps {
     children: React.ReactNode;
@@ -35,6 +35,7 @@ const Icon = (props: IconProps): React.ReactElement<IconProps> => {
 
 Icon.defaultProps = {
     size: 'medium',
+    color: 'black',
 };
 
 export default Icon;

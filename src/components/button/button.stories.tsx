@@ -5,7 +5,7 @@ import { ThemeDecorator } from '../../static/themeDecorator';
 import Button from './index';
 
 export default {
-    title: 'components|atomic/Button', // 스토리북에서 보여질 그룹과 경로를 명시
+    title: 'components|Atoms/Button', // 스토리북에서 보여질 그룹과 경로를 명시
     component: Button, // 어떤 컴포넌트를 문서화 할지 명시
     decorators: [withKnobs, ThemeDecorator], // 애드온 적용
 };

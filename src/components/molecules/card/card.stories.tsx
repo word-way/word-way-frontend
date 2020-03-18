@@ -4,7 +4,7 @@ import { ThemeDecorator } from '../../../static/themeDecorator';
 import Card from './index';
 
 export default {
-    title: 'components|atomic/Card',
+    title: 'components|Molecules/Card',
     component: Card,
     decorators: [withKnobs, ThemeDecorator],
 };
