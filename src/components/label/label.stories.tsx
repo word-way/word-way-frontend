@@ -4,7 +4,7 @@ import { theme } from '../../static/theme';
 import Label from './index';
 
 export default {
-    title: 'components|atomic/Label',
+    title: 'components|Atoms/Label',
     component: Label,
     decorators: [withKnobs],
 };

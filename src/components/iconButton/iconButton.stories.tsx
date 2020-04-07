@@ -6,7 +6,7 @@ import { theme } from '../../static/theme';
 import IconButton from './index';
 
 export default {
-    title: 'components|atomic/IconButton',
+    title: 'components|Atoms/IconButton',
     component: IconButton,
     decorators: [withKnobs, ThemeDecorator],
 };
