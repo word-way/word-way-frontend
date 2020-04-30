@@ -1,8 +1,8 @@
 import React from 'react';
 import { withKnobs, select, boolean } from '@storybook/addon-knobs';
-import { ReactComponent as DelIc } from '../../assets/icons/cross.svg';
-import { ThemeDecorator } from '../../static/themeDecorator';
-import { theme } from '../../static/theme';
+import { ReactComponent as DelIc } from '../../../assets/icons/cross.svg';
+import { ThemeDecorator } from '../../../static/themeDecorator';
+import { theme } from '../../../static/theme';
 import IconButton from './index';
 
 export default {

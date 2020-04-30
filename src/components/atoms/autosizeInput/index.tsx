@@ -1,6 +1,6 @@
 import React, { useEffect, ChangeEvent, FocusEvent, KeyboardEvent } from 'react';
 import styled, { css } from 'styled-components';
-import useAutosizeInput from '../../hooks/useAutosizeInput';
+import useAutosizeInput from '../../../hooks/useAutosizeInput';
 export interface AutosizeInputProps {
     type: 'text';
     maxLength: number;
