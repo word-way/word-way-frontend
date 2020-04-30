@@ -1,18 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext }  from 'react';
 import styled, { css, ThemeContext } from 'styled-components';
-import { ReactComponent as CloseIc } from '../../../assets/icons/cross.svg';
-import Label from '../../atoms/label';
-import Button from '../../atoms/button';
-import IconButton from '../../atoms/iconButton';
 
-export interface Word {
-    title: string;
-}
-export interface CardModel {
-    title: string;
-    desc: string;
-    words: Word[];
-}
+import { ReactComponent as CloseIc } from '../../../assets/icons/cross.svg';
+import Label from '../../label';
+import Button from '../../button';
+import IconButton from '../../iconButton';
+
+import { CardModel } from '../../../utils/types';
+
 export interface CardProps {
     canDel: boolean;
     data: CardModel;
@@ -23,8 +18,24 @@ const Card = (props: CardProps): React.ReactElement<CardProps> => {
         canDel,
         data,
     } = props;
-    const multi = data.words.length > 0 ? false : true;
+    const multi = data.words.length > 1 ? true : false;
     const theme = useContext(ThemeContext);
+    const word = multi ? undefined : data.words[0];
+    const getRelatedPronunciations = (): string[] | undefined => {
+        let res: string[] = [];
+        if (multi) {
+            return undefined;
+        } else {
+            if (data.relatedPronunciations){
+                res = res.concat(data.relatedPronunciations);
+            }
+            if (word && word.relatedPronunciations){
+                res = res.concat(word.relatedPronunciations);
+            }
+            return res;
+        }
+    }
+    const relatedPronunciations = getRelatedPronunciations();
 
     const CardIc = styled(IconButton)`
         position: absolute;
@@ -89,17 +100,17 @@ const Card = (props: CardProps): React.ReactElement<CardProps> => {
                 {canDel && <CardIc icon={<CloseIc />} variant='text' size='small'></CardIc>}
                 <Label color={theme.colors.blue}
                     weight='light'
-                    size='large'>{data.title}</Label>
+                    size='large'>{data.pronunciation}</Label>
                 <DescLabel color={theme.colors.g500}
                     weight='light'
-                    size='13px'>{multi ? ('2개의 뜻 존재') : data.desc}
+                    size='13px'>{multi ? ('2개의 뜻 존재') : word && word.contents}
                 </DescLabel>
             </div>
-            {!multi &&
+            {!multi && relatedPronunciations &&
                 <KeywordWrapp>
-                    {data.words.map((word: Word, index: number) =>
+                    {relatedPronunciations.map((pronunciation: string, index: number) =>
                         <Button color={theme.colors.g100} corner='rounded' variant='contained' size='small' key={index}>
-                            {word.title}
+                            {pronunciation}
                         </Button>
                     )}
                 </KeywordWrapp>

@@ -1,7 +1,9 @@
 import React from 'react';
 import { withKnobs, boolean, object } from '@storybook/addon-knobs';
-import { ThemeDecorator } from '../../../static/themeDecorator';
+
 import Card from './index';
+import { ThemeDecorator } from '../../../static/themeDecorator';
+import { WordPart } from '../../../utils/types';
 
 export default {
     title: 'components|Molecules/Card',
@@ -10,27 +12,37 @@ export default {
 };
 
 const cardValue = {
-    title: '지향하다',
-    desc: '[동사] 어떤 목표로 뜻이 쏠리어 향하다.',
-    words: [
-        {
-            title: '향하다',
-        },
-        {
-            title: '쏠리다',
-        },
-        {
-            title: '쏠리다',
-        },
-        {
-            title: '쏠리다',
-        },
-    ],
+  id: '00000000-0000-0000-0000-000000000001',
+  pronunciation: '떼다',
+  related_pronunciations: ['감자'],
+  words: [
+    {
+        contents: '붙어 있거나 잇닿은 것을 떨어지게 하다.',
+        id: '00000000-0000-0000-0000-000000000003',
+        part: 'verb' as WordPart,
+        related_pronunciations: ['고구마']
+    },
+  ]
 };
+
 const multiCardValue = {
-    title: '떼다',
-    desc: '붙어 있거나 잇닿은 것을 떨어지게 하다.',
-    words: [],
+  id: '00000000-0000-0000-0000-000000000001',
+  pronunciation: '떼다',
+  related_pronunciations: [],
+  words: [
+    {
+      contents: '붙어 있거나 잇닿은 것을 떨어지게 하다.',
+      id: '00000000-0000-0000-0000-000000000003',
+      part: 'verb' as WordPart,
+      related_pronunciations: []
+    },
+    {
+      contents: '남에게서 빌려 온 돈 따위를 돌려주지 않다.',
+      id: '00000000-0000-0000-0000-000000000007',
+      part: 'verb' as WordPart,
+      related_pronunciations: []
+    }
+  ]
 };
 
 export const card = () => {
