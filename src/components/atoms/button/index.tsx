@@ -1,8 +1,5 @@
-import React from 'react';
-import { css } from 'styled-components';
-import styled from '../../static/styled-components';
-import { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React, { useContext } from 'react';
+import styled, { css, ThemeContext } from 'styled-components';
 
 export interface ButtonProps {
   type: 'button' | 'reset' | 'submit';

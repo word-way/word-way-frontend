@@ -1,9 +1,7 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React, { useContext } from 'react';
+import styled, { css, ThemeContext } from 'styled-components';
 import Icon from '../icon';
 import Button, { ButtonProps } from '../button';
-import { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
 
 export interface IconButtonProps extends ButtonProps {
     left: boolean;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import Icon from '../icon';
-import { ReactComponent as CheckmarkIc } from '../../assets/icons/checkmark.svg';
+import { ReactComponent as CheckmarkIc } from '../../../assets/icons/checkmark.svg';
 
 export interface CheckboxProps {
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;

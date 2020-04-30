@@ -1,6 +1,6 @@
 import React from 'react';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
-import { theme } from '../../static/theme';
+import { theme } from '../../../static/theme';
 import Label from './index';
 
 export default {

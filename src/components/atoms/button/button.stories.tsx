@@ -1,7 +1,7 @@
 import React from 'react';
 import { select, withKnobs } from '@storybook/addon-knobs';
-import { theme } from '../../static/theme';
-import { ThemeDecorator } from '../../static/themeDecorator';
+import { theme } from '../../../static/theme';
+import { ThemeDecorator } from '../../../static/themeDecorator';
 import Button from './index';
 
 export default {

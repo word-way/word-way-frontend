@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeDecorator } from '../../static/themeDecorator';
+import { ThemeDecorator } from '../../../static/themeDecorator';
 import Checkbox from './index';
 
 export default {

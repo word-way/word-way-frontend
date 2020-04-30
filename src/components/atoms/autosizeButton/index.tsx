@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import IconButton from '../iconButton';
 import AutosizeInput, { AutosizeInputProps } from '../autosizeInput';
-import { ReactComponent as CloseIcon } from '../../assets/icons/cross.svg';
+import { ReactComponent as CloseIcon } from '../../../assets/icons/cross.svg';
 
 export interface AutosizeButtonProps extends AutosizeInputProps {
     onCancle?: () => void;
