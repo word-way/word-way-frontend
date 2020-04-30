@@ -2,6 +2,8 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { ArrayParam, useQueryParams } from 'use-query-params';
 
+import SearchBox from '../components/molecules/searchBox';
+
 interface WordListProps {
   searchWord: string;
 }
@@ -16,8 +18,13 @@ const WordListPage: React.FC<RouteComponentProps<WordListProps>> = (props) => {
     props.history.push(url);
   };
 
+  const onSearch = (word: string) => {
+    console.log('update query string');
+  };
+
   return (
     <div>
+      <SearchBox onSearch={onSearch} />
       WordList Page
       <div>
         <h2>단어 -> {query.words}</h2>
