@@ -9,6 +9,7 @@ export interface AutosizeInputProps {
     placeholder?: string;
     label?: string;
     color?: string;
+    autoFocus: boolean;
     disabled?: boolean;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
@@ -25,10 +26,8 @@ const BaseInput = (props: AutosizeInputProps): React.ReactElement<AutosizeInputP
     const { AutosizeInputState, onChangeValue, onChangeWidth } = useAutosizeInput();
     let sizerEle: HTMLSpanElement | null;
     let placeHolderSizer: HTMLSpanElement | null;
-    let newInputWidth: number;
 
     const resizeInput = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange(e);
         if (!sizerEle || typeof sizerEle.scrollWidth === 'undefined') {
             return;
         }
@@ -36,7 +35,8 @@ const BaseInput = (props: AutosizeInputProps): React.ReactElement<AutosizeInputP
         onChangeValue(changeValue);
     };
 
-    const updateInputWidth = () => {
+    useEffect(() => {
+        let newInputWidth: number;
         if (!sizerEle) {
             return;
         } else if (placeHolderSizer && !AutosizeInputState.value) {
@@ -48,9 +48,8 @@ const BaseInput = (props: AutosizeInputProps): React.ReactElement<AutosizeInputP
             newInputWidth = minWidth;
         }
         onChangeWidth(newInputWidth);
-    };
-
-    useEffect(() => updateInputWidth(), [AutosizeInputState.value]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [AutosizeInputState.value]);
 
     const HiddenText = styled.span`
         position: absolute;
@@ -70,12 +69,14 @@ const BaseInput = (props: AutosizeInputProps): React.ReactElement<AutosizeInputP
     return (
         <div className={className}>
             <input
-                onChange={(e) => resizeInput(e)}
+                onChange={(e) => {
+                    onChange(e);
+                    resizeInput(e);
+                }}
                 style={dynamicStyle}
                 value={AutosizeInputState.value}
                 placeholder={placeholder}
                 {...other}
-                autoFocus
             />
             <HiddenText ref={(ref) => { sizerEle = ref; }}>
                 {AutosizeInputState.value}
@@ -122,6 +123,7 @@ BaseInput.defaultProps = {
     type: 'text',
     minWidth: 1,
     maxLength: 17,
+    autoFocus: true,
     onChange: () => {},
 };
 

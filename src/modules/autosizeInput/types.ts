@@ -3,9 +3,7 @@ import * as actions from './actions';
 
 export type AutosizeInputAction = ActionType<typeof actions>;
 
-export interface AutosizeInput {
+export interface AutosizeInputState {
   value: string;
   inputWidth: number;
 }
-
-export type AutosizeInputState = AutosizeInput;
