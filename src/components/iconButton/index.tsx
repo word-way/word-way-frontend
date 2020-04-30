@@ -32,11 +32,10 @@ const IconButton = (props: IconButtonProps): React.ReactElement<IconButtonProps>
     }
     const StyleButton = styled(Button)`
         align-items: center;
-        display: flex;
         .label_wrapp {
             width: 100%;
             justify-content: inherit;
-            display: inherit;
+            display: flex;
             align-items: inherit;
             position: relative;
             .ic_wrapp {
@@ -49,7 +48,6 @@ const IconButton = (props: IconButtonProps): React.ReactElement<IconButtonProps>
         }
         ${!children && !btnInnerIc && css`
             min-width: auto !important;
-            padding: 12px !important;
         `}
     `;
 

@@ -5,12 +5,25 @@ import Root from './routes/index';
 import * as serviceWorker from './serviceWorker';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './static/theme';
+import { Provider } from 'react-redux';
+import { createStore, compose } from 'redux';
+import rootReducer from './modules';
+
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEnhancers());
 
 ReactDOM.render(
+  <Provider store={store}>
     <ThemeProvider theme={theme}>
-        <Root />
+      <Root />
     </ThemeProvider>
-, document.getElementById('root'));
+  </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
