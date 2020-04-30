@@ -18,20 +18,27 @@ const Label = (props: LabelProps): React.ReactElement<LabelProps> => {
         className,
     } = props;
 
+    let fontSize;
+    switch (size) {
+        case 'large':
+            fontSize = 24;
+            break;
+        case 'medium':
+            fontSize = 15;
+            break;
+        case 'small':
+            fontSize = 11;
+            break;
+    }
+    fontSize = fontSize ? `${fontSize}px` : size;
     const StyleDiv = styled.div`
         font-weight: normal;
         color: ${color};
+        padding: calc(${fontSize} * 0.1);
+        font-size: ${fontSize};
         ${size === 'medium' && css`
-            font-size: 15px;
             font-weight: 500;
         `}
-        ${size === 'large' && css`
-            font-size: 24px;
-        `}
-        ${size !== 'large' && size !== 'medium' && css`
-            font-size: ${size};
-        `}
-
         ${weight === 'light' && css`
             font-weight: 300;
         `}
