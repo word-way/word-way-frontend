@@ -64,7 +64,7 @@ export const buttonInnerIcon = () => {
         color={color}
         variant={variant}
         corner='rounded'
-        btnInnerIc={true}
+        borderIconOnly={true}
         size={size}>
     </IconButton>;
 };

@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import styled, { css, ThemeContext } from 'styled-components';
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 export interface ButtonProps {
   type: 'button' | 'reset' | 'submit';
@@ -15,20 +15,29 @@ export interface ButtonProps {
 
 const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
   const {
-    type,
-    corner,
+    children,
+    ...other
+  } = props;
+
+  return (
+    <button {...other}>
+      {children}
+    </button>
+  );
+};
+
+const StyledButton = styled(Button)((props) => {
+  const {
+    color,
+    disabled,
     size,
     variant,
-    onClick,
-    children,
-    className,
-    disabled,
-    color,
+    theme,
+    corner,
   } = props;
-  const themeContext = useContext(ThemeContext);
-  const theme = themeContext;
   const fontSize = (!size || size === 'medium') ? 1.1 : (size === 'small' ? 0.8 : 1.8);
-  const StyleButton = styled.button`
+
+  return css`
     background: transparent;
     border-radius: 4px;
     color: ${theme.colors.g500};
@@ -41,7 +50,7 @@ const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
     cursor: pointer;
     outline: 0;
     ${variant === 'text' && css`
-    border: 0;
+      border: 0;
     `}
 
     ${variant === 'contained' && css`
@@ -69,12 +78,7 @@ const Button = (props: ButtonProps): React.ReactElement<ButtonProps> => {
       min-width: 90px;
     `}
   `;
-  return (
-    <StyleButton type={type} onClick={onClick} disabled={disabled} className={className}>
-      {children}
-    </StyleButton>
-  );
-};
+});
 
 Button.defaultProps = {
   type: 'button',
@@ -86,4 +90,4 @@ Button.defaultProps = {
   color: 'black',
 };
 
-export default Button;
+export default StyledButton;
