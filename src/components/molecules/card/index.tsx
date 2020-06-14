@@ -2,9 +2,9 @@ import React, { useContext }  from 'react';
 import styled, { css, ThemeContext } from 'styled-components';
 
 import { ReactComponent as CloseIc } from '../../../assets/icons/cross.svg';
-import Label from '../../label';
-import Button from '../../button';
-import IconButton from '../../iconButton';
+import Label from '../../atoms/label';
+import Button from '../../atoms/button';
+import IconButton from '../../atoms/iconButton';
 
 import { CardModel } from '../../../utils/types';
 
