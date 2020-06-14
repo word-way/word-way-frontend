@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Button from '../../button';
+import Button from '../../atoms/button';
 
 interface SearchBoxProp {
   onSearch: (word: string) => void,
