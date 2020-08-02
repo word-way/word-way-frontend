@@ -59,6 +59,7 @@
     "@storybook/addon-storyshots": "^5.2.6",
     "@storybook/react": "^5.2.6",
     "@types/storybook__addon-storyshots": "^5.1.1",
+    "prettier": "2.0.5",
     "react-test-renderer": "^16.11.0",
     "require-context.macro": "^1.2.2"
   }
